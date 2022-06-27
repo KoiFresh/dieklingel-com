@@ -3,8 +3,20 @@
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link>
   </nav>
-  <router-view />
+  <!--<router-view />-->
+  <FooterBar></FooterBar>
+  <span>H</span>
 </template>
+
+<script lang="ts">
+import { Options, Vue } from "vue-class-component";
+import FooterBar from "./components/FooterBar.vue";
+
+@Options({
+  components: FooterBar,
+})
+export default class App extends Vue {}
+</script>
 
 <style lang="scss">
 #app {
