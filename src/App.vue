@@ -1,35 +1,35 @@
 <template>
-  <div>
+  <div class="app">
     <div class="header">
       <img class="logo" src="@/assets/logo_2500x500_free.png" />
       <div class="navbar">
         <router-link to="/">dieKlingel</router-link>
-        <router-link to="/a">the app</router-link>
+        <!--<router-link to="/a">the app</router-link>
         <router-link to="/b">hardware</router-link>
-        <router-link to="/c">software</router-link>
-        <router-link to="/">contact</router-link>
-        <router-link to="/">aboutu us</router-link>
+        <router-link to="/c">software</router-link>-->
+        <router-link to="/contact">contact</router-link>
+        <!--<router-link to="/">aboutu us</router-link>-->
       </div>
     </div>
-    <div class="body"></div>
-    <div class="footer"></div>
+    <div class="body">
+      <router-view />
+    </div>
+    <div class="footer">
+      <div>
+        <span>directed by <b>Kai Mayer</b> and <b>Sven Schoch</b></span>
+      </div>
+      <div class="navbar">
+        <router-link to="/credit-notes">credit notes</router-link>
+        <router-link to="/privacy-policy">privacy policy</router-link>
+      </div>
+    </div>
   </div>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <!--<router-view />-->
-  <FooterBar></FooterBar>
-  <span>Hallo</span>
 </template>
 
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
-import FooterBar from "./components/FooterBar.vue";
 
-@Options({
-  components: FooterBar,
-})
+@Options({})
 export default class App extends Vue {}
 </script>
 
@@ -38,14 +38,14 @@ html, body
   margin: 0
   padding: 0
   font-family: 'Noto Sans JP', sans-serif
-
-body
-  height: 100%
-  display: grid
-  grid-template-rows: auto 1fr auto
 </style>
 
 <style lang="sass" scoped>
+.app
+  height: 100vh
+  display: grid
+  grid-template-rows: auto 1fr auto
+
 .header
   background-color: #ccc
   text-align: center
@@ -64,24 +64,54 @@ body
     max-width: 80%
     max-height: 120px
     margin: 20px 0px 5px 0px
+  .navbar
+    background-color: #333
+    margin-top: 5px
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-evenly
+    box-shadow: 2px 2px 5px #808080
+    & a
+      flex: 1 1 auto
+      color: #f2f2f2
+      text-decoration: none
+      box-sizing: border-box
+      padding: 14px 16px
+      &.router-link-exact-active
+        color: #ffc847
+        font-weight: bold
+      &:hover
+        color: #333
+        background-color: #ccc
 
-.navbar
-  background-color: #333
-  margin-top: 5px
-  display: flex
-  flex-wrap: wrap
-  justify-content: space-evenly
-  box-shadow: 2px 2px 5px #808080
-  & a
-    flex: 1 1 auto
-    color: #f2f2f2
-    text-decoration: none
-    box-sizing: border-box
-    padding: 14px 16px
-    &.router-link-exact-active
-      color: #ffc847
-      font-weight: bold
-    &:hover
-      color: #333
-      background-color: #ccc
+.body
+  display: block
+
+.footer
+  position: relative
+  display: block
+  text-align: center
+  padding: 60px 0px 10px 0px
+  background-color: #707070
+  &:before
+    content: ""
+    top: 0
+    left: 0
+    width: 100%
+    position: absolute
+    height: 3.4vw
+    background-color: transparent
+    background-image: linear-gradient(to top left, #707070 49% , white 51%)
+  .navbar
+    margin: 30px
+    & a
+      margin: 5px
+      text-decoration: none
+      color: #000
+      border: 1px so
+      padding: 8px 20px
+      border-right: 1px solid #000
+      border-left: 1px solid #000
+      &:hover
+        color: #fff
 </style>
