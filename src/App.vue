@@ -5,7 +5,7 @@
   </nav>
   <!--<router-view />-->
   <FooterBar></FooterBar>
-  <span>H</span>
+  <span>Hallo</span>
 </template>
 
 <script lang="ts">
