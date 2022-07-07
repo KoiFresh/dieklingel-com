@@ -79,7 +79,6 @@ html, body
       padding: 14px 16px
       &.router-link-exact-active
         color: #ffc847
-        font-weight: bold
       &:hover
         color: #333
         background-color: #ccc
