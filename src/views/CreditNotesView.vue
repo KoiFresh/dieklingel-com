@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="container">
     <p class="headline">
       <span>Impressum</span>
     </p>
@@ -87,7 +87,7 @@ export default class CreditNotesView extends Vue {}
 </script>
 
 <style lang="sass" scoped>
-.home
+.container
   margin: 20px
 
 .headline
