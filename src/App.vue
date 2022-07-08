@@ -7,8 +7,8 @@
           die<i class="icon-logo-inverted"></i>Klingel
         </router-link>
         <!--<router-link to="/a">the app</router-link>
-        <router-link to="/b">hardware</router-link>
-        <router-link to="/c">software</router-link>-->
+        <router-link to="/b">hardware</router-link>-->
+        <router-link to="/software">software</router-link>
         <router-link to="/contact">contact</router-link>
         <!--<router-link to="/">aboutu us</router-link>-->
       </div>
@@ -99,7 +99,7 @@ html, body
   position: relative
   display: block
   text-align: center
-  padding: 60px 0px 10px 0px
+  padding: calc(3.4vw + 10px) 0px 10px 0px
   background-color: #707070
   &:before
     content: ""
