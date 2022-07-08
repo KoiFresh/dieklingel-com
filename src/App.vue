@@ -3,7 +3,9 @@
     <div class="header">
       <img class="logo" src="@/assets/logo_2500x500_free.png" />
       <div class="navbar">
-        <router-link to="/">dieKlingel</router-link>
+        <router-link to="/">
+          die<i class="icon-logo-inverted"></i>Klingel
+        </router-link>
         <!--<router-link to="/a">the app</router-link>
         <router-link to="/b">hardware</router-link>
         <router-link to="/c">software</router-link>-->
@@ -16,11 +18,16 @@
     </div>
     <div class="footer">
       <div>
-        <span>directed by <b>Kai Mayer</b> and <b>Sven Schoch</b></span>
+        <span>
+          directed by <a href="#" class="link">Kai Mayer</a> and
+          <a href="#" class="link">Sven Schoch</a>
+        </span>
       </div>
       <div class="navbar">
-        <router-link to="/credit-notes">credit notes</router-link>
-        <router-link to="/privacy-policy">privacy policy</router-link>
+        <router-link to="/credit-notes" class="link">credit notes</router-link>
+        <router-link to="/privacy-policy" class="link"
+          >privacy policy</router-link
+        >
       </div>
     </div>
   </div>
@@ -32,6 +39,8 @@ import { Options, Vue } from "vue-class-component";
 @Options({})
 export default class App extends Vue {}
 </script>
+
+<style lang="sass" src="@/assets/style.sass"></style>
 
 <style lang="sass">
 html, body
@@ -113,4 +122,20 @@ html, body
       border-left: 1px solid #000
       &:hover
         color: #fff
+
+a.link
+  color: #ffea00
+  font-weight: 100
+  text-decoration: none
+  white-space: nowrap
+  &:before
+    content: '[ '
+  &:after
+    content: ' ]'
+  &:before, &:after
+    color: #e303fc
+  &:hover
+    color: #e303fc
+    &:before, &:after
+      color: #ffea00
 </style>

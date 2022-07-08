@@ -1,12 +1,13 @@
 <template>
   <div class="container">
     <p class="text">
-      dieKlingel is a project under the direction of Kai Mayer and Sven Schoch.
-      The idea of the project is it, to build a lightweight doorbell, with a
-      bunch of features like viedo calling or unlock the door from all over the
-      world. And this for a fraction, of what it normaly costs. dieKlingel is
-      not a ready-to-use plug and pray product ;). Furthermore with some
-      settings it intergrates into your smarthome system like
+      <a href="#"> die<i class="icon-logo"></i>Klingel </a> is a project under
+      the direction of Kai Mayer and Sven Schoch. The idea of the project is it,
+      to build a lightweight doorbell, with a bunch of features like viedo
+      calling or unlock the door from all over the world. And this for a
+      fraction, of what it normaly costs. dieKlingel is not a ready-to-use plug
+      and pray product ;). Furthermore with some settings it intergrates into
+      your smarthome system like
       <a href="https://fhem.de/"> fhem </a>
       . What if you wan't connect from all over the world? Easy one, than don't
       set it up. Do i have to use the app? No! the app is an implementation of
@@ -47,4 +48,15 @@ export default class HomeView extends Vue {}
     color: #ffea00
     font-weight: 100
     text-decoration: none
+    white-space: nowrap
+    &:before
+      content: '[ '
+    &:after
+      content: ' ]'
+    &:before, &:after
+      color: #e303fc
+    &:hover
+      color: #e303fc
+      &:before, &:after
+        color: #ffea00
 </style>
