@@ -25,9 +25,9 @@
       </div>
       <div class="navbar">
         <router-link to="/credit-notes" class="link">credit notes</router-link>
-        <router-link to="/privacy-policy" class="link"
-          >privacy policy</router-link
-        >
+        <router-link to="/privacy-policy" class="link">
+          privacy policy
+        </router-link>
       </div>
     </div>
   </div>
@@ -113,6 +113,7 @@ html, body
   .navbar
     margin: 30px
     & a
+      display: inline-block
       margin: 5px
       text-decoration: none
       color: #000

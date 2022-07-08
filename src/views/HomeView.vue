@@ -5,23 +5,33 @@
       the direction of Kai Mayer and Sven Schoch. The idea of the project is it,
       to build a lightweight doorbell, with a bunch of features like viedo
       calling or unlock the door from all over the world. And this for a
-      fraction, of what it normaly costs. dieKlingel is not a ready-to-use plug
-      and pray product ;). Furthermore with some settings it intergrates into
-      your smarthome system like
-      <a href="https://fhem.de/"> fhem </a>
-      . What if you wan't connect from all over the world? Easy one, than don't
+      fraction, of what it normaly costs.
+    </p>
+    <p class="text">
+      <a href="#">die<i class="icon-logo-inverted"></i>Klingel</a> is not a
+      ready-to-use
+      <a href="https://de.wikipedia.org/wiki/Plug_%26_Pray" target="_blank">
+        plug and pray
+      </a>
+      product ;). Furthermore with some settings it intergrates into your
+      smarthome system like <a href="https://fhem.de/" target="_blank">fhem</a>.
+      What if you won't connect from all over the world? Easy one, than don't
       set it up. Do i have to use the app? No! the app is an implementation of
       the API, on which the doorbell is build on top of. And before you ask, it
       is mostly
-      <a href="https://de.wikipedia.org/wiki/MQTT">mqtt</a>
-      . Over all, it is a mixture of mqtt,
-      <a href="https://de.wikipedia.org/wiki/WebRTC">webrtc</a>
+      <a href="https://de.wikipedia.org/wiki/MQTT" target="_blank">mqtt</a>.
+      Over all, it is a mixture of
+      <a href="https://de.wikipedia.org/wiki/MQTT" target="_blank">mqtt</a>,
+      <a href="https://de.wikipedia.org/wiki/WebRTC" target="_blank">webrtc</a>
       and some kind of
-      <a href="https://de.wikipedia.org/wiki/JavaScript_Object_Notation">
+      <a
+        href="https://de.wikipedia.org/wiki/JavaScript_Object_Notation"
+        target="_blank"
+      >
         json
       </a>
       . And straight ahead, we also do signaling over mqtt. If you are
-      interested, then keep this website in mind. Here you will publish
+      interested, then keep this website in mind. Here we will publish
       information about the project.
     </p>
   </div>
@@ -40,7 +50,7 @@ export default class HomeView extends Vue {}
   box-sizing: border-box
   background-color: #ffa100
   margin: 0.8em 0
-  padding: 1em 5em
+  padding: 1em 1em
 
 .text
   text-align: center

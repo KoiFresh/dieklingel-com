@@ -8,10 +8,9 @@
       </a>
       or via instagram
       <a href="https://www.instagram.com/koifreshofficial/" target="_blank">
-        @koifreshofficial
-      </a>
-      Oh and hey, here is my
-      <a href="https://github.com/KoiFresh" target="_blank">GitHub</a>
+        @koifreshofficial</a
+      >. Oh and hey, here is my
+      <a href="https://github.com/KoiFresh" target="_blank">GitHub</a>.
     </p>
   </div>
 </template>
@@ -22,7 +21,7 @@
   box-sizing: border-box
   background-color: #ffa100
   margin: 0.8em 0
-  padding: 1em 5em
+  padding: 1em 1em
 
 .text
   text-align: center
