@@ -1,0 +1,22 @@
+name: build
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      REPO: self
+      BRANCH: gh-pages
+      FOLDER: dist
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      MESSAGE: "Build: ({sha}) {msg}"
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+      - run: npm install
+      - run: npm run build
+      - uses: s0/git-publish-subdir-action@develop
