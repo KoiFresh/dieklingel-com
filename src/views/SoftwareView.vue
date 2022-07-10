@@ -15,29 +15,21 @@
       <div class="card-container">
         <card-component class="card">
           <template v-slot:header>the base</template>
-          <template v-slot:content> I am the content</template>
+          <template v-slot:content>work in progress...</template>
         </card-component>
         <card-component class="card">
           <template v-slot:header>the app</template>
           <template v-slot:content>
-            I am the dasd dasd ascontentd dasd adad asd asd a dsd as asd sdassa
-            ddsad ad
-            <br />das<br />das<br />das
+            <a href="https://app.dieklingel.de/">Check it out!</a>
           </template>
         </card-component>
         <card-component class="card">
           <template v-slot:header>services</template>
-          <template v-slot:content>
-            I am the dasd dasd ascontentd dassa ddsad ad
-            <br />das<br />das<br />das
-          </template>
+          <template v-slot:content> work in progress... </template>
         </card-component>
         <card-component class="card">
           <template v-slot:header>third party</template>
-          <template v-slot:content>
-            I am the dasd dasd ascontentd dassa ddsad ad
-            <br />das<br />das<br />das
-          </template>
+          <template v-slot:content> work in progress... </template>
         </card-component>
       </div>
     </div>
