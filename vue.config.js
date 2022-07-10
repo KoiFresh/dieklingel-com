@@ -4,6 +4,6 @@ module.exports = defineConfig({
     ? '/' // custom domainname dieklingel.de
     // ? '/dieklingel-homepage/' // github pages
     : '/',
-  outputDir: 'docs',
+  //outputDir: 'docs',
   transpileDependencies: true,
 });

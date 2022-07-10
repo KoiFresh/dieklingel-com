@@ -6,7 +6,7 @@ jobs:
     env:
       REPO: self
       BRANCH: gh-pages
-      FOLDER: build/web
+      FOLDER: dist
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       MESSAGE: "Build: ({sha}) {msg}"
     steps:
