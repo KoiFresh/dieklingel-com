@@ -47,9 +47,9 @@ export default class ResponsiveScrollCard extends Vue {
       Math.max(0, this.content.getBoundingClientRect().top * -1)
     );
 
-    const pixelPerFrame = maxScrollTop / 30;
+    const pixelPerFrame = maxScrollTop / 99;
     const frameIndex = Math.floor(scrollTop / pixelPerFrame);
-    this.currentFrameIndex = frameIndex + 3;
+    this.currentFrameIndex = frameIndex + 1;
 
     requestAnimationFrame(this.renderScrollCard);
   }
@@ -72,9 +72,9 @@ export default class ResponsiveScrollCard extends Vue {
   }
 
   currentFrame(index: number): string {
-    return `https://www.apple.com/105/media/us/airpods-pro/2019/1299e2f5_9206_4470_b28e_08307a42f19b/anim/sequence/large/01-hero-lightpass/${index
+    return require(`@/assets/animations/dieklingel/${index
       .toString()
-      .padStart(4, "0")}.jpg`;
+      .padStart(4, "0")}.png`);
   }
 }
 </script>

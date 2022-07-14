@@ -8,10 +8,9 @@
 
 <style lang="sass" scoped>
 .container
-  color: white
   background-color: rgba(255, 255, 255, .15)
   backdrop-filter: blur(5px)
-
+  box-shadow: 0px 0px 5px rgba(240, 240, 240, 0.7)
   border-radius: 1em
 
 .content
