@@ -1,38 +1,43 @@
 <template>
-  <div>
-    <div class="text">
-      <p>
-        At the moment, our software consits out of three pieces. At first we
-        have the frontend, hanging on your main entrance. This piece we call the
-        base or sometimes core. Then there is the app, which is running on your
-        smarthphone, your tablet and your desktop pc. And finally there is some
-        type of service, which could be used, for example to send push
-        notifications from the base to the app. I know, I said there are three
-        pieses, but if we take it exactly, there is one more. We will call the
-        fourth component third party, ironicg. The third party compontent is
-        something like fhem as smarthome system or mosquitto as mqtt broker.
-      </p>
-      <div class="card-container">
-        <card-component class="card">
-          <template v-slot:header>the base</template>
-          <template v-slot:content>work in progress...</template>
-        </card-component>
-        <card-component class="card">
-          <template v-slot:header>the app</template>
-          <template v-slot:content>
-            <a href="https://app.dieklingel.de/">Check it out!</a>
-          </template>
-        </card-component>
-        <card-component class="card">
-          <template v-slot:header>services</template>
-          <template v-slot:content> work in progress... </template>
-        </card-component>
-        <card-component class="card">
-          <template v-slot:header>third party</template>
-          <template v-slot:content> work in progress... </template>
-        </card-component>
+  <div class="container">
+    <responsive-scroll-card>
+      <div class="cards">
+        <glass-card>
+          <p>
+            At the moment, our software consits out of three pieces. At first we
+            have the frontend, hanging on your main entrance. This piece we call
+            the base or sometimes core. Then there is the app, which is running
+            on your smarthphone, your tablet and your desktop pc. And finally
+            there is some type of service, which could be used, for example to
+            send push notifications from the base to the app. I know, I said
+            there are three pieses, but if we take it exactly, there is one
+            more. We will call the fourth component third party, ironicg. The
+            third party compontent is something like fhem as smarthome system or
+            mosquitto as mqtt broker.
+          </p>
+        </glass-card>
+        <glass-card>
+          <p class="headline">the base</p>
+          <p>work in progress...</p>
+        </glass-card>
+        <glass-card>
+          <p class="headline">the app</p>
+          <p>
+            <a style="color: grey" href="https://app.dieklingel.de/"
+              >Check it out!</a
+            >
+          </p>
+        </glass-card>
+        <glass-card>
+          <p class="headline">services</p>
+          <p>work in progress...</p>
+        </glass-card>
+        <glass-card>
+          <p class="headline">third party</p>
+          <p>work in progress...</p>
+        </glass-card>
       </div>
-    </div>
+    </responsive-scroll-card>
     <div class="logos">
       <a href="https://flutter.dev/" target="_blank">
         <img
@@ -61,18 +66,19 @@
 
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
-import CardComponent from "@/components/CardComponent.vue";
+import GlassCard from "@/components/GlassCard.vue";
+import ResponsiveScrollCard from "@/components/ResponsiveScrollCard.vue";
 
 @Options({
-  components: { CardComponent },
+  components: { GlassCard, ResponsiveScrollCard },
 })
 export default class SoftwareView extends Vue {}
 </script>
 
 <style lang="sass" scoped>
 .text
-  text-align: center
   margin: 2em
+  text-align: center
   .subtitle
     font-weight: bold
     display: block
@@ -89,10 +95,23 @@ export default class SoftwareView extends Vue {}
       transition: transform 0.5s 0s
       transform: scale(1.1)
 
-.card-container
-  display: inline-flex
-  flex-flow: column wrap
-
-.card
-  background-color: #ffde85
+.cards
+  margin: 0.75em
+  display: grid
+  grid-template-columns: 1fr 1fr
+  > *
+    $margin: 0.6em
+    margin: $margin
+    grid-column: 1 / span 2
+    width: calc(50% - $margin * 2)
+    min-width: 275px
+    transition: transform 0.2s 0s
+    &:nth-child(odd)
+      justify-self: start
+      &:hover
+        transform: rotate(1deg) scale(1.05)
+    &:nth-child(even)
+      justify-self: end
+      &:hover
+        transform: rotate(-1deg) scale(1.05)
 </style>
