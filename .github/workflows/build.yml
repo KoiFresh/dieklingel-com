@@ -19,4 +19,5 @@ jobs:
           node-version: '16'
       - run: npm install
       - run: npm run build
+      - run: echo "dieklingel.de" > dist/CNAME
       - uses: s0/git-publish-subdir-action@develop
