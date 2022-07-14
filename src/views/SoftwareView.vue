@@ -1,6 +1,10 @@
 <template>
   <div class="container">
-    <responsive-scroll-card>
+    <responsive-scroll-card
+      from="1"
+      to="100"
+      path="@/assets/animations/dieklingel/:id:.png"
+    >
       <div class="cards">
         <glass-card>
           <p>
@@ -16,7 +20,7 @@
             mosquitto as mqtt broker.
           </p>
         </glass-card>
-        <glass-card>
+        <glass-card style="margin-top: 45vh">
           <p class="headline">the base</p>
           <p>work in progress...</p>
         </glass-card>
@@ -34,7 +38,21 @@
         </glass-card>
         <glass-card>
           <p class="headline">third party</p>
-          <p>work in progress...</p>
+          <p>
+            As third party components we look at the mosquitto mqtt broker. We
+            use mqtt as our main protocol. So you have to use mosquitto or any
+            other mqtt broker of your choice to connect with. Another third
+            party is a smarthome system like fhem. The base is kept lightweight,
+            without much of service included, but extenable. Use fhem to save a
+            picture to your database, notify your app, or even control the
+            display. In combination with fhem you could use another service
+            distributed by us. The service we talk about is called
+            dieklingel-fcm-worker and it provides an an api to send push
+            notifications to the dieklingel-app over another third party
+            component called "Google Firebase Cloud Messaging". It comes to a
+            chain of services, third party components and built in functions,
+            all configured by the user.
+          </p>
         </glass-card>
       </div>
     </responsive-scroll-card>
