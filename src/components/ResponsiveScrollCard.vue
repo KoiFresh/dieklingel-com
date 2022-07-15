@@ -73,7 +73,7 @@ export default class ResponsiveScrollCard extends Vue {
 
     let img = this.images[index];
     let scale = Math.min(
-      this.canvas.width / (img.width * 0.5), // TODO fix image size instead of croping here
+      this.canvas.width / img.width,
       this.canvas.height / img.height
     );
     let x = this.canvas.width / 2 - (img.width / 2) * scale;

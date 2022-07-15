@@ -3,7 +3,7 @@
     <responsive-scroll-card
       from="1"
       to="100"
-      path="@/assets/animations/dieklingel/:id:.png"
+      path="@/assets/animations/dieklingel/:id:.jpg"
     >
       <div class="cards">
         <glass-card>
@@ -20,7 +20,7 @@
             mosquitto as mqtt broker.
           </p>
         </glass-card>
-        <glass-card style="margin-top: 45vh">
+        <glass-card>
           <p class="headline">the base</p>
           <p>work in progress...</p>
         </glass-card>
@@ -119,11 +119,12 @@ export default class SoftwareView extends Vue {}
   grid-template-columns: 1fr 1fr
   > *
     $margin: 0.6em
-    margin: $margin
+    margin: 50vh $margin
     grid-column: 1 / span 2
     width: calc(50% - $margin * 2)
     min-width: 275px
     transition: transform 0.2s 0s
+    margin-bo
     &:nth-child(odd)
       justify-self: start
       &:hover
