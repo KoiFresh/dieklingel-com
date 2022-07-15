@@ -4,6 +4,7 @@
       from="1"
       to="100"
       path="@/assets/animations/dieklingel/:id:.jpg"
+      fallback="@/assets/animations/dieklingel/0001.jpg"
     >
       <div class="cards">
         <glass-card>

@@ -13,6 +13,7 @@ import { Prop } from "vue-property-decorator";
 
 export default class ResponsiveScrollCard extends Vue {
   @Prop({ default: "" }) readonly path!: string;
+  @Prop({ default: "" }) readonly fallback!: string;
   @Prop({ default: 0 }) readonly from!: number;
   @Prop({ default: 0 }) readonly to!: number;
   @Prop({ default: 4 }) readonly padStart!: number;
@@ -22,10 +23,15 @@ export default class ResponsiveScrollCard extends Vue {
   private context: CanvasRenderingContext2D | null | undefined;
   private content: HTMLDivElement | undefined;
   private images: HTMLImageElement[] = [];
+  private fallbackImage: HTMLImageElement | undefined;
   private loaded = false;
+  private toImg = 0;
 
   mounted(): void {
-    this.loadImages();
+    this.toImg = this.to;
+    this.loadFallback();
+    //this.loadImages();
+
     this.currentFrameIndex = this.from;
 
     this.canvas = this.$refs.canvas as HTMLCanvasElement;
@@ -35,7 +41,7 @@ export default class ResponsiveScrollCard extends Vue {
     this.canvas.width = window.innerWidth;
     this.canvas.height = window.innerHeight;
 
-    requestAnimationFrame(this.renderScrollCard);
+    //requestAnimationFrame(this.renderScrollCard);
     window.addEventListener("scroll", this.scrollListener);
   }
 
@@ -58,9 +64,9 @@ export default class ResponsiveScrollCard extends Vue {
       Math.max(0, this.content.getBoundingClientRect().top * -1)
     );
 
-    const pixelPerFrame = maxScrollTop / (this.to - this.from);
+    const pixelPerFrame = maxScrollTop / this.toImg - this.from;
     const frameIndex = Math.floor(scrollTop / pixelPerFrame);
-    this.currentFrameIndex = frameIndex;
+    this.currentFrameIndex = Math.min(frameIndex, this.images.length - 1);
 
     requestAnimationFrame(this.renderScrollCard);
   }
@@ -82,6 +88,26 @@ export default class ResponsiveScrollCard extends Vue {
     let height = img.height * scale;
 
     this.context?.drawImage(img, x, y, width, height);
+  }
+
+  loadFallback(): void {
+    const start = new Date().getTime();
+    let path = this.fallback.replace("@/assets", "");
+    const img = new Image();
+    img.onload = () => {
+      const end = new Date().getTime();
+      const duration = end - start;
+      if (duration < 500) {
+        console.log(duration);
+        this.loadImages();
+      } else {
+        this.images.push(img);
+        this.toImg = this.from;
+      }
+      requestAnimationFrame(this.renderScrollCard);
+    };
+
+    img.src = require("@/assets" + path);
   }
 
   loadImages(): void {
