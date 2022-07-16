@@ -94,9 +94,8 @@ export default class ResponsiveScrollCard extends Vue {
         this.drawBackground();
       };
       this.image.src = this.fallback;
-      //this.drawBackground();
       this.failsToLoadInTime++;
-    }, 60);
+    }, 120);
 
     this.image.onload = () => {
       clearTimeout(cancelTask);
@@ -105,10 +104,11 @@ export default class ResponsiveScrollCard extends Vue {
     };
 
     this.image.src =
-      this.loadInTime / this.failsToLoadInTime > 3 / 1
+      this.loadInTime / this.failsToLoadInTime > 7 / 1
         ? this.imageSrcs[this.currentFrameIndex]
         : this.fallback;
   }
+
   drawBackground(): void {
     let scale = Math.min(
       this.canvas!.width / this.image.width,
