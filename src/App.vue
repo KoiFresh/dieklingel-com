@@ -1,7 +1,11 @@
 <template>
   <div class="app">
     <div class="header">
-      <img class="logo" src="@/assets/logo_2500x500_free.png" />
+      <img
+        class="logo"
+        src="@/assets/logo_2500x500_free.png"
+        alt="dieKlingel Logo and Text"
+      />
       <div class="navbar">
         <router-link to="/">
           die<i class="icon-logo-inverted"></i>Klingel
