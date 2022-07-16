@@ -1,62 +1,91 @@
 <template>
   <div class="container">
-    <responsive-scroll-card
-      from="1"
-      to="100"
-      path="animations/dieklingel/:id:.jpg"
-      fallback="animations/dieklingel/0008.jpg"
-    >
-      <div class="cards">
-        <glass-card>
-          <p>
-            At the moment, our software consits out of three pieces. At first we
-            have the frontend, hanging on your main entrance. This piece we call
-            the base or sometimes core. Then there is the app, which is running
-            on your smarthphone, your tablet and your desktop pc. And finally
-            there is some type of service, which could be used, for example to
-            send push notifications from the base to the app. I know, I said
-            there are three pieses, but if we take it exactly, there is one
-            more. We will call the fourth component third party, ironicg. The
-            third party compontent is something like fhem as smarthome system or
-            mosquitto as mqtt broker.
-          </p>
-        </glass-card>
-        <glass-card>
-          <p class="headline">the base</p>
-          <p>work in progress...</p>
-        </glass-card>
-        <glass-card>
-          <p class="headline">the app</p>
-          <p>
-            <a style="color: grey" href="https://app.dieklingel.de/"
-              >Check it out!</a
-            >
-          </p>
-        </glass-card>
-        <glass-card>
-          <p class="headline">services</p>
-          <p>work in progress...</p>
-        </glass-card>
-        <glass-card>
-          <p class="headline">third party</p>
-          <p>
-            As third party components we look at the mosquitto mqtt broker. We
-            use mqtt as our main protocol. So you have to use mosquitto or any
-            other mqtt broker of your choice to connect with. Another third
-            party is a smarthome system like fhem. The base is kept lightweight,
-            without much of service included, but extenable. Use fhem to save a
-            picture to your database, notify your app, or even control the
-            display. In combination with fhem you could use another service
-            distributed by us. The service we talk about is called
-            dieklingel-fcm-worker and it provides an an api to send push
-            notifications to the dieklingel-app over another third party
-            component called "Google Firebase Cloud Messaging". It comes to a
-            chain of services, third party components and built in functions,
-            all configured by the user.
-          </p>
-        </glass-card>
-      </div>
-    </responsive-scroll-card>
+    <div ref="scrollcontainer">
+      <responsive-scroll-card
+        ref="scrollcard"
+        from="1"
+        to="100"
+        path="animations/dieklingel/:id:.jpg"
+        fallback="animations/dieklingel/0008.jpg"
+        @scrolled="onScroll"
+      >
+        <div class="cards">
+          <glass-card
+            class="center"
+            v-bind:style="
+              desktopScrollEngine(scrollPercentage, 0, 20, 30, 30, 5, 5)
+            "
+          >
+            <p>
+              At the moment, our software consits out of three pieces. At first
+              we have the frontend, hanging on your main entrance. This piece we
+              call the base or sometimes core. Then there is the app, which is
+              running on your smarthphone, your tablet and your desktop pc. And
+              finally there is some type of service, which could be used, for
+              example to send push notifications from the base to the app. I
+              know, I said there are three pieses, but if we take it exactly,
+              there is one more. We will call the fourth component third party,
+              ironicg. The third party compontent is something like fhem as
+              smarthome system or mosquitto as mqtt broker.
+            </p>
+          </glass-card>
+          <glass-card
+            class="right"
+            v-bind:style="
+              desktopScrollEngine(scrollPercentage, 20, 40, 50, 20, 5, 5)
+            "
+          >
+            <p class="headline">the base</p>
+            <p>work in progress...</p>
+          </glass-card>
+          <glass-card
+            class="left"
+            v-bind:style="
+              desktopScrollEngine(scrollPercentage, 40, 60, 20, 50, 5, 5)
+            "
+          >
+            <p class="headline">the app</p>
+            <p>
+              <a style="color: grey" href="https://app.dieklingel.de/"
+                >Check it out!</a
+              >
+            </p>
+          </glass-card>
+          <glass-card
+            class="left"
+            v-bind:style="
+              desktopScrollEngine(scrollPercentage, 60, 80, 50, 20, 5, 5)
+            "
+          >
+            <p class="headline">services</p>
+            <p>work in progress...</p>
+          </glass-card>
+          <glass-card
+            class="right"
+            v-bind:style="
+              desktopScrollEngine(scrollPercentage, 80, 100, 20, 20, 5, 5)
+            "
+          >
+            <p class="headline">third party</p>
+            <p>
+              As third party components we look at the mosquitto mqtt broker. We
+              use mqtt as our main protocol. So you have to use mosquitto or any
+              other mqtt broker of your choice to connect with. Another third
+              party is a smarthome system like fhem. The base is kept
+              lightweight, without much of service included, but extenable. Use
+              fhem to save a picture to your database, notify your app, or even
+              control the display. In combination with fhem you could use
+              another service distributed by us. The service we talk about is
+              called dieklingel-fcm-worker and it provides an an api to send
+              push notifications to the dieklingel-app over another third party
+              component called "Google Firebase Cloud Messaging". It comes to a
+              chain of services, third party components and built in functions,
+              all configured by the user.
+            </p>
+          </glass-card>
+        </div>
+      </responsive-scroll-card>
+    </div>
     <div class="logos">
       <a href="https://flutter.dev/" target="_blank">
         <img
@@ -87,11 +116,81 @@
 import { Options, Vue } from "vue-class-component";
 import GlassCard from "@/components/GlassCard.vue";
 import ResponsiveScrollCard from "@/components/ResponsiveScrollCard.vue";
+import { h } from "@vue/runtime-core";
 
 @Options({
   components: { GlassCard, ResponsiveScrollCard },
 })
-export default class SoftwareView extends Vue {}
+export default class SoftwareView extends Vue {
+  private scrollPercentage = 0;
+
+  onScroll(percentage: number): void {
+    this.scrollPercentage = percentage;
+  }
+
+  get isMobile(): boolean {
+    return window.matchMedia("only screen and (max-width: 760px)").matches;
+  }
+
+  desktopScrollEngine(
+    currentValue: number,
+    visibleFrom: number,
+    visibleTo: number,
+    screenTopOffset: number,
+    screenBottomOffset: number,
+    fadeIn: number,
+    fadeOut: number
+  ) {
+    const container = this.$refs.scrollcontainer as HTMLDivElement;
+    if (!container)
+      return {
+        /*display: "none"*/
+      };
+    const containerHeight: number = container.getBoundingClientRect().height;
+    const screenHeight = document.documentElement.clientHeight;
+
+    const opacityIn =
+      currentValue > visibleFrom && currentValue < visibleFrom + fadeIn
+        ? this.map(currentValue, visibleFrom, visibleFrom + fadeIn, 0, 1)
+        : 1;
+    const opacityOut =
+      currentValue > visibleTo - fadeOut && currentValue < visibleTo
+        ? this.map(currentValue, visibleTo - fadeOut, visibleTo, 1, 0)
+        : 1;
+
+    let onScreenOffset = this.map(
+      currentValue,
+      visibleFrom,
+      visibleTo,
+      screenHeight * this.map(screenBottomOffset, 0, 100, 1, 0),
+      0 + screenHeight * this.map(screenTopOffset, 0, 100, 0, 1)
+    );
+    let topOffset = onScreenOffset;
+
+    return {
+      position: "fixed",
+      transform: "translateY(-50%)",
+      top: topOffset + "px",
+      opacity: opacityOut * opacityIn,
+      display:
+        currentValue > visibleFrom && currentValue < visibleTo
+          ? "block"
+          : "none",
+    };
+  }
+
+  map(
+    current: number,
+    in_min: number,
+    in_max: number,
+    out_min: number,
+    out_max: number
+  ): number {
+    return (
+      ((current - in_min) * (out_max - out_min)) / (in_max - in_min) + out_min
+    );
+  }
+}
 </script>
 
 <style lang="sass" scoped>
@@ -115,23 +214,26 @@ export default class SoftwareView extends Vue {}
       transform: scale(1.1)
 
 .cards
-  margin: 0.75em
-  display: grid
-  grid-template-columns: 1fr 1fr
+  height: 300vh
+  position: relative
   > *
     $margin: 0.6em
-    margin: 50vh $margin
-    grid-column: 1 / span 2
-    width: calc(50% - $margin * 2)
+    $width: calc(50% - $margin * 2)
+    position: absolute
+    display: none
+    width: $width
     min-width: 275px
     transition: transform 0.2s 0s
-    margin-bo
-    &:nth-child(odd)
-      justify-self: start
-      &:hover
-        transform: rotate(1deg) scale(1.05)
-    &:nth-child(even)
-      justify-self: end
-      &:hover
-        transform: rotate(-1deg) scale(1.05)
+    &.right
+      right: $margin
+    &.left
+      left: $margin
+    &.center
+      left: calc(25% - $margin)
+
+.cards
+  > *
+    transition: opacity 0.2s 0s
+  .invisible
+    opacity: 0
 </style>

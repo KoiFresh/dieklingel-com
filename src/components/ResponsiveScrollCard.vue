@@ -26,6 +26,7 @@ export default class ResponsiveScrollCard extends Vue {
   private image: HTMLImageElement = new Image();
   private failsToLoadInTime = 0;
   private loadInTime = 0;
+  private animate = true;
 
   private imageSrcs: string[] = [];
 
@@ -47,6 +48,7 @@ export default class ResponsiveScrollCard extends Vue {
 
     this.resizeListener();
     requestAnimationFrame(this.renderScrollCard);
+
     window.addEventListener("scroll", this.scrollListener);
     window.addEventListener("resize", this.resizeListener);
   }
@@ -74,6 +76,8 @@ export default class ResponsiveScrollCard extends Vue {
     const pixelPerFrame = maxScrollTop / this.toImg - this.from;
     const frameIndex = Math.floor(scrollTop / pixelPerFrame);
     this.currentFrameIndex = Math.min(frameIndex, this.imageSrcs.length - 1);
+    const scrollPercentage = (scrollTop * 100) / maxScrollTop;
+    this.$emit("scrolled", scrollPercentage);
 
     requestAnimationFrame(this.renderScrollCard);
   }
@@ -82,7 +86,8 @@ export default class ResponsiveScrollCard extends Vue {
     if (!this.canvas) return;
     this.canvas.width = this.canvas.getBoundingClientRect().width; // window.innerWidth;
     this.canvas.height = this.canvas.getBoundingClientRect().height; // window.innerHeight;
-    requestAnimationFrame(this.drawBackground);
+    this.drawBackground();
+    //requestAnimationFrame(this.drawBackground);
   }
 
   renderScrollCard(): void {
@@ -93,9 +98,9 @@ export default class ResponsiveScrollCard extends Vue {
       this.image.onload = () => {
         this.drawBackground();
       };
-      this.image.src = this.fallback;
+      //this.image.src = this.fallback;
       this.failsToLoadInTime++;
-    }, 120);
+    }, 200);
 
     this.image.onload = () => {
       clearTimeout(cancelTask);
@@ -103,10 +108,9 @@ export default class ResponsiveScrollCard extends Vue {
       this.drawBackground();
     };
 
-    this.image.src =
-      this.loadInTime / this.failsToLoadInTime > 7 / 1
-        ? this.imageSrcs[this.currentFrameIndex]
-        : this.fallback;
+    this.image.src = this.isMobile
+      ? this.fallback
+      : this.imageSrcs[this.currentFrameIndex];
   }
 
   drawBackground(): void {
@@ -118,10 +122,13 @@ export default class ResponsiveScrollCard extends Vue {
     let y = this.canvas!.height / 2 - (this.image.height / 2) * scale;
     let width = this.image.width * scale;
     let height = this.image.height * scale;
-    console.log(width);
 
-    this.context?.clearRect(0, 0, this.canvas!.width, this.canvas!.height);
+    //this.context?.clearRect(0, 0, this.canvas!.width, this.canvas!.height);
     this.context?.drawImage(this.image, x, y, width, height);
+  }
+
+  get isMobile(): boolean {
+    return window.matchMedia("only screen and (max-width: 760px)").matches;
   }
 }
 </script>
@@ -129,6 +136,8 @@ export default class ResponsiveScrollCard extends Vue {
 <style lang="sass" scoped>
 .content
   min-height: 200vh
+  display: inline-block
+  width: 100%
 
 .content-body
   margin-top: -100vh
