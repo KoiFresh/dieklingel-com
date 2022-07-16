@@ -3,8 +3,8 @@
     <responsive-scroll-card
       from="1"
       to="100"
-      path="@/assets/animations/dieklingel/:id:.jpg"
-      fallback="@/assets/animations/dieklingel/0001.jpg"
+      path="animations/dieklingel/:id:.jpg"
+      fallback="animations/dieklingel/0008.jpg"
     >
       <div class="cards">
         <glass-card>

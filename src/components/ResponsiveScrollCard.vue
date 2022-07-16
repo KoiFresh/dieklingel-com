@@ -22,15 +22,22 @@ export default class ResponsiveScrollCard extends Vue {
   private canvas: HTMLCanvasElement | undefined;
   private context: CanvasRenderingContext2D | null | undefined;
   private content: HTMLDivElement | undefined;
-  private images: HTMLImageElement[] = [];
-  private fallbackImage: HTMLImageElement | undefined;
-  private loaded = false;
   private toImg = 0;
+  private image: HTMLImageElement = new Image();
+  private failsToLoadInTime = 0;
+  private loadInTime = 0;
+
+  private imageSrcs: string[] = [];
 
   mounted(): void {
     this.toImg = this.to;
-    this.loadFallback();
-    //this.loadImages();
+    this.image.src = this.fallback;
+
+    for (let i = this.from; i < this.to; i++) {
+      const index: string = i.toString().padStart(this.padStart, "0");
+      const path: string = this.path.replace(":id:", index);
+      this.imageSrcs.push(path);
+    }
 
     this.currentFrameIndex = this.from;
 
@@ -38,15 +45,15 @@ export default class ResponsiveScrollCard extends Vue {
     this.context = this.canvas.getContext("2d");
     this.content = this.$refs.content as HTMLDivElement;
 
-    this.canvas.width = window.innerWidth;
-    this.canvas.height = window.innerHeight;
-
-    //requestAnimationFrame(this.renderScrollCard);
+    this.resizeListener();
+    requestAnimationFrame(this.renderScrollCard);
     window.addEventListener("scroll", this.scrollListener);
+    window.addEventListener("resize", this.resizeListener);
   }
 
   unmounted(): void {
     window.removeEventListener("scroll", this.scrollListener);
+    window.removeEventListener("resize", this.resizeListener);
   }
 
   scrollListener(): void {
@@ -66,68 +73,55 @@ export default class ResponsiveScrollCard extends Vue {
 
     const pixelPerFrame = maxScrollTop / this.toImg - this.from;
     const frameIndex = Math.floor(scrollTop / pixelPerFrame);
-    this.currentFrameIndex = Math.min(frameIndex, this.images.length - 1);
+    this.currentFrameIndex = Math.min(frameIndex, this.imageSrcs.length - 1);
 
     requestAnimationFrame(this.renderScrollCard);
+  }
+
+  resizeListener(): void {
+    if (!this.canvas) return;
+    this.canvas.width = this.canvas.getBoundingClientRect().width; // window.innerWidth;
+    this.canvas.height = this.canvas.getBoundingClientRect().height; // window.innerHeight;
+    requestAnimationFrame(this.drawBackground);
   }
 
   renderScrollCard(): void {
     if (!this.canvas) return;
     if (!this.context) return;
-    this.context?.clearRect(0, 0, this.canvas!.width, this.canvas!.height);
-    let index = this.loaded ? this.currentFrameIndex : 0;
 
-    let img = this.images[index];
-    let scale = Math.min(
-      this.canvas.width / img.width,
-      this.canvas.height / img.height
-    );
-    let x = this.canvas.width / 2 - (img.width / 2) * scale;
-    let y = this.canvas.height / 2 - (img.height / 2) * scale;
-    let width = img.width * scale;
-    let height = img.height * scale;
+    const cancelTask = setTimeout(() => {
+      this.image.onload = () => {
+        this.drawBackground();
+      };
+      this.image.src = this.fallback;
+      //this.drawBackground();
+      this.failsToLoadInTime++;
+    }, 100);
 
-    this.context?.drawImage(img, x, y, width, height);
-  }
-
-  loadFallback(): void {
-    const start = new Date().getTime();
-    let path = this.fallback.replace("@/assets", "");
-    const img = new Image();
-    img.onload = () => {
-      const end = new Date().getTime();
-      const duration = end - start;
-      if (duration < 500) {
-        console.log(duration);
-        this.loadImages();
-      } else {
-        this.images.push(img);
-        this.toImg = this.from;
-      }
-      requestAnimationFrame(this.renderScrollCard);
+    this.image.onload = () => {
+      clearTimeout(cancelTask);
+      this.loadInTime++;
+      this.drawBackground();
     };
 
-    img.src = require("@/assets" + path);
+    this.image.src =
+      this.loadInTime / this.failsToLoadInTime > 2
+        ? this.imageSrcs[this.currentFrameIndex]
+        : this.fallback;
   }
+  drawBackground(): void {
+    let scale = Math.min(
+      this.canvas!.width / this.image.width,
+      this.canvas!.height / this.image.height
+    );
+    let x = this.canvas!.width / 2 - (this.image.width / 2) * scale;
+    let y = this.canvas!.height / 2 - (this.image.height / 2) * scale;
+    let width = this.image.width * scale;
+    let height = this.image.height * scale;
+    console.log(width);
 
-  loadImages(): void {
-    let imagesLoaded = 0;
-    for (let i: number = this.from; i <= this.to; i++) {
-      const num: string = i.toString().padStart(this.padStart, "0");
-      const image = document.createElement("img");
-      let p: string = this.path.replace(":id:", num).replace("@/assets", "");
-      image.onload = () => {
-        imagesLoaded++;
-        if (imagesLoaded >= this.to - this.from) {
-          this.loaded = true;
-          requestAnimationFrame(this.renderScrollCard);
-        }
-      };
-      setTimeout(() => {
-        image.src = require("@/assets" + p);
-      }, 0);
-      this.images.push(image);
-    }
+    this.context?.clearRect(0, 0, this.canvas!.width, this.canvas!.height);
+    this.context?.drawImage(this.image, x, y, width, height);
   }
 }
 </script>
