@@ -37,14 +37,6 @@
   </div>
 </template>
 
-<script lang="ts">
-import Vue from 'vue';
-
-export default Vue.extend({
-  name: 'home',
-});
-</script>
-
 <style lang="sass" scoped>
 .container
   box-shadow: 2px 2px 5px #808080
