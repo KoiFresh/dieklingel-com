@@ -21,4 +21,8 @@ h2, h3, h4, h5, h6
   &:before
     content: '🔗'
     padding: 0 0.2em 0 0
+
+iframe
+  width: min(560px, 100%)
+  aspect-ratio: 560 / 315
 </style>
