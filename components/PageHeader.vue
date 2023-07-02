@@ -24,14 +24,14 @@
   background-color: #ccc
   text-align: center
   position: relative
-  padding: 10px 0 5vw 0px
+  padding: 10px 0 min(4em, 4vw) 0px
   &:before
     content: ""
     left: 0,
     bottom: 0,
     width: 100%,
     position: absolute
-    height: 3.4vw
+    height: min(3em, 3vw)
     background-color: transparent
     background-image: linear-gradient(to bottom right, #cccccc 49% , white 51%)
   .logo

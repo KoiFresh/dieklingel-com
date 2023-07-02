@@ -20,7 +20,7 @@
   position: relative
   display: block
   text-align: center
-  padding: calc(3.4vw + 10px) 0px 10px 0px
+  padding: calc(min(3.4em, 3.4vw) + 10px) 0px 10px 0px
   background-color: #707070
   &:before
     content: ""
@@ -28,7 +28,7 @@
     left: 0
     width: 100%
     position: absolute
-    height: 3.4vw
+    height: min(3.4em, 3.4vw)
     background-color: transparent
     background-image: linear-gradient(to top left, #707070 49% , white 51%)
   .navbar
