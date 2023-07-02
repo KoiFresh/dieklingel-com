@@ -12,3 +12,13 @@
   padding: 1em
   margin: auto
 </style>
+
+<style lang="sass" module>
+h2, h3, h4, h5, h6
+  a
+    text-decoration: none
+    color: #616161
+  &:before
+    content: '🔗'
+    padding: 0 0.2em 0 0
+</style>
