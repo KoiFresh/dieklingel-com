@@ -7,39 +7,38 @@
       alt="dieKlingel Logo und Text"
     ></nuxt-img>
     <div class="navbar">
-      <nuxt-link to="/">
+      <nuxt-link to="/" exactActiveClass="nuxt-link-exact-active">
         die<i class="icon-logo-inverted"></i>Klingel
       </nuxt-link>
       <!--<router-link to="/a">the app</router-link>
         <router-link to="/b">hardware</router-link>-->
-      <nuxt-link to="/software">software</nuxt-link>
-      <nuxt-link to="/contact">contact</nuxt-link>
+      <nuxt-link to="/software" exactActiveClass="nuxt-link-exact-active">
+        software
+      </nuxt-link>
+      <nuxt-link to="/contact" exactActiveClass="nuxt-link-exact-active">
+        contact
+      </nuxt-link>
+      <nuxt-link to="/blog" exactActiveClass="nuxt-link-exact-active">
+        blog
+      </nuxt-link>
       <!--<router-link to="/">aboutu us</router-link>-->
     </div>
   </div>
 </template>
-
-<script lang="ts">
-import Vue from 'vue';
-
-export default Vue.extend({
-  name: 'header',
-});
-</script>
 
 <style lang="sass" scoped>
 .header
   background-color: #ccc
   text-align: center
   position: relative
-  padding: 10px 0 5vw 0px
+  padding: 10px 0 min(4em, 4vw) 0px
   &:before
     content: ""
     left: 0,
     bottom: 0,
     width: 100%,
     position: absolute
-    height: 3.4vw
+    height: min(3em, 3vw)
     background-color: transparent
     background-image: linear-gradient(to bottom right, #cccccc 49% , white 51%)
   .logo
@@ -64,5 +63,7 @@ export default Vue.extend({
       &:hover
         color: #333
         background-color: #ccc
+a.nuxt-link-active
+  color: #000 !important
 </style>
 
