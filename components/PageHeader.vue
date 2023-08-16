@@ -7,13 +7,20 @@
       alt="dieKlingel Logo und Text"
     ></nuxt-img>
     <div class="navbar">
-      <nuxt-link to="/">
+      <nuxt-link to="/" exactActiveClass="nuxt-link-exact-active">
         die<i class="icon-logo-inverted"></i>Klingel
       </nuxt-link>
       <!--<router-link to="/a">the app</router-link>
         <router-link to="/b">hardware</router-link>-->
-      <nuxt-link to="/software">software</nuxt-link>
-      <nuxt-link to="/contact">contact</nuxt-link>
+      <nuxt-link to="/software" exactActiveClass="nuxt-link-exact-active">
+        software
+      </nuxt-link>
+      <nuxt-link to="/contact" exactActiveClass="nuxt-link-exact-active">
+        contact
+      </nuxt-link>
+      <nuxt-link to="/blog" exactActiveClass="nuxt-link-exact-active">
+        blog
+      </nuxt-link>
       <!--<router-link to="/">aboutu us</router-link>-->
     </div>
   </div>
@@ -56,5 +63,7 @@
       &:hover
         color: #333
         background-color: #ccc
+a.nuxt-link-active
+  color: #000 !important
 </style>
 

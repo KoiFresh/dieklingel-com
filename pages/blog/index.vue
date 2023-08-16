@@ -18,5 +18,5 @@ definePageMeta({
 
 <style lang="sass" scoped>
 .list
-	padding: 1em
+  padding: 1em
 </style>
