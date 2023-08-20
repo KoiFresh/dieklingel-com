@@ -5,6 +5,7 @@
 </template>
 
 <style lang="sass" scoped>
-.blog
-  padding: 1em
+html, body
+  padding: 0,
+  margin: 0,
 </style>

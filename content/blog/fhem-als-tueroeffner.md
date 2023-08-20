@@ -1,9 +1,14 @@
 ---
-Language: German
-Date: 2023-08-18
-Tags: 
+lang: German 🇩🇪
+created: 2023-08-18
+author: Kai Mayer
+description: Wie man FHEM benutzt um mittels Passcode die Haustür zu öffnen
+tags: 
   - fhem
   - raspberrypi
+  - actions
+  - smarthome
+  - mqtt
 ---
 
 # FHEM als Türöffner
