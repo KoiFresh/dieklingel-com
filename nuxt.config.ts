@@ -40,4 +40,12 @@ export default defineNuxtConfig({
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
+
+  content: {
+    highlight: {
+      theme: {
+        default: 'github-light',
+      }
+    }
+  }
 });
