@@ -1,31 +1,30 @@
-# dieklingel-homepage
+# 🔔 dieKlingel-com
 
-## Project setup
-```
+![the logo for dieKlingel](./public/logo_2500x500_free.png)
+
+Welcome to the source code of the <https://dieklingel.com/> site. This site is build
+using [Vue.js](https://vuejs.org) and [Nuxt](https://nuxt.com). You can find relevant information or the current state of the project on the website.
+
+## 🪜 Dependencies
+
+- [Yarn](https://yarnpkg.com/)
+- [Node](https://nodejs.org/)
+
+## 🏗️ Run the site local
+
+```sh
 yarn install
+yarn dev
 ```
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
+## 🪄 Run the linter
 
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Lints and fixes files
-```
+```sh
 yarn lint
 ```
 
-### Build and publish
-```
-yarn build 
-// add all new files
-git subtree push --prefix dist origin gh-pages
-```
+## 📦 Build the static site
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+```sh
+yarn generate 
+```
