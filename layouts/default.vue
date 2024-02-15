@@ -23,4 +23,6 @@ html, body
 
 .body
   display: block
+  margin: 0 auto
+  max-width: 800px
 </style>
