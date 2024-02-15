@@ -5,8 +5,8 @@
     </p>
     <p class="address">
       <span>Kai Mayer</span><br />
-      <span>Pilgramstraße 14</span><br />
-      <span>74081 Heilbronn Sontheim</span><br />
+      <span>Im Espele 8</span><br />
+      <span>74592 Kirchberg an der Jagst</span><br />
     </p>
     <p>
       <span class="subtitle">Vertreten durch:</span>
