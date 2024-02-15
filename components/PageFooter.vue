@@ -13,9 +13,7 @@
       <router-link to="/privacy-policy" class="link">
         🕵🏼 privacy policy
       </router-link>
-      <router-link to="https://github.com/dieklingel" class="link">
-        🐙 github
-      </router-link>
+      <a href="https://github.com/dieklingel" class="link"> 🐙 github </a>
     </div>
   </div>
 </template>
