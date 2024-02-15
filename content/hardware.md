@@ -28,7 +28,12 @@ There is no dedicated hardware to use with dieKlingel softeare. However we alrea
     Subdevice #0: subdevice #0
   ```
 
-  If the soundcard is not detected, after a reboot, try unplugging the Raspberry Pi from the powersupply and plug in again.
+  If the soundcard is not detected, after a reboot, try unplugging the Raspberry Pi from the powersupply and plug in again. When the soundcard is detected but you can't hear anything, you should check that the output isn't muted or the volume is at 0%. Run `alsamixe` and check the properties for:
+
+  - `Speaker`: The master volume
+  - `Playback`: The Volume of the Soundcard
+  - `Left Output Mixer PCM`: To enable the left channel
+  - `Right Output Mixer PCM`: To enable the right channel
 
 - [External USB Mini Speaker](https://www.berrybase.de/externer-usb-mini-lautsprecher-schwarz)
   
