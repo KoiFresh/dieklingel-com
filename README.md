@@ -2,7 +2,7 @@
 
 ![the logo for dieKlingel](./public/logo_2500x500_free.png)
 
-Welcome to the source code of the <dieklingel.com> site. This site is build
+Welcome to the source code of the <https://dieklingel.com/> site. This site is build
 using [Vue.js](https://vuejs.org) and [Nuxt](https://nuxt.com). You can find relevant information or the current state of the project on the website.
 
 ## 🪜 Dependencies
