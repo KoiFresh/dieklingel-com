@@ -1,10 +1,16 @@
 # dieKlingel
 
-dieKlingel is a project under the direction of Kai Mayer and Sven Schoch. The idea of the project is it, to build a lightweight doorbell, with a bunch of features like viedo calling or unlock the door from all over the world. And this for a fraction, of what it normaly costs.
+Discover a project aimed at crafting a lightweight, feature-packed doorbell. Enjoy video calling and remote door unlocking, all at a fraction of the usual cost.
 
-dieKlingel is not a ready-to-use plug and pray  product ;). Furthermore with some settings it intergrates into your smarthome system like fhem. What if you won't connect from all over the world? Easy one, than don't set it up. Do i have to use the app? No! the app is an implementation of the API, on which the doorbell is build on top of. And before you ask, it is mostly mqtt. Over all, it is a mixture of mqtt, webrtc and some kind of json. And straight ahead, we also do signaling over mqtt. If you are interested, then keep this website in mind. Here we will publish information about the project.
+dieKlingel is a project under the direction of Kai Mayer and Sven Schoch. The idea of the project is it, to build a lightweight doorbell, with a bunch of features like video calling or unlock the door from all over the world.
 
 ## Video
 
 <iframe id="yt-video" src="https://www.youtube-nocookie.com/embed/WCDt4GCEuzU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
 </iframe>
+
+## Inspiration
+
+Also check out [DoorPi](https://doorpi.org/), a great project building a doorbell based on the Raspberry Pi, which is unfortunately no longer active in development.
+
+For Design inspiration checkout the [Residium Door Unit](https://ux-design-awards.com/winners/residium-door-unit), where the harware as well as the software had a great [design](https://www.residium.com/uploads_residium/2016/02/PRO_Prospekt_DoorUnit_RZ.pdf). Unfortunately the product line was [discontinued](https://www.residium.com/de/home-closed/) by Callom GmbH since September 2021.

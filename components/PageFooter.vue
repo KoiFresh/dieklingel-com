@@ -2,15 +2,18 @@
   <div class="footer">
     <div>
       <span>
-        directed by <a href="#" class="link">Kai Mayer</a> and
+        directed by <a href="https://mayer.sh/" class="link">Kai Mayer</a> and
         <a href="#" class="link">Sven Schoch</a>
       </span>
     </div>
     <div class="navbar">
-      <router-link to="/credit-notes" class="link">credit notes</router-link>
-      <router-link to="/privacy-policy" class="link">
-        privacy policy
+      <router-link to="/credit-notes" class="link">
+        🗞️ credit notes
       </router-link>
+      <router-link to="/privacy-policy" class="link">
+        🕵🏼 privacy policy
+      </router-link>
+      <a href="https://github.com/dieklingel" class="link"> 🐙 github </a>
     </div>
   </div>
 </template>
@@ -61,4 +64,3 @@ a.link
     &:before, &:after
       color: #ffea00
 </style>
-
