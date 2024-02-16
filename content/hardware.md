@@ -43,6 +43,27 @@ There is no dedicated hardware to use with dieKlingel softeare. However we alrea
 
 - [Mini USB Microphone (adafruit)](https://www.berrybase.de/adafruit-mini-usb-mikrofon)
 - [Mini USB Microphone](https://www.berrybase.de/usb-mini-mikrofon)
+  
+  Both of the obove microphones look exactly the same, the came in an equal package. But one is from adafruit the other isn't and we can't even belive it, the more expensive microphone had a better sound. But we recommend try it yourself.
+
+  We stumbled across echo over and over again. So we remcommend to use the echo cancallation module from pipewire, it does a pretty good job. Youn can find information about the module here <>. You can enable it by default, when creating a file `/etc/pipewire/pipewire.conf.d/echo-cancel.conf`:
+
+  ```conf
+  context.modules = [
+    {
+      name = libpipewire-module-echo-cancel
+      args = { }
+    }
+  ]
+  ```
+
+  And don't forget to set the echo cancel source and sink as default for liblinphone in the [`core.ini`](https://github.com/KoiFresh/dieklingel-core/blob/main/service/app/core.ini.in):
+
+  ```ìni
+  [core.sip]
+  playback-device=PulseAudio Unknown: Echo-Cancel Sink
+  capture-device=PulseAudio Unknown: Echo-Cancel Source
+  ```
 
 ## 🖥️ The display
 
