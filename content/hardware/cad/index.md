@@ -90,7 +90,15 @@ _This part is still under construction._
 - ::download-link{:file="/hardware/cad/raspberry-pi-4.FCStd"}
   ::
 
-_The model of the Raspberry Pi 4 wasn't designes by use. We got it from thingiverse <https://www.thingiverse.com/thing:4621310/files>. Thanks to [Brian Lee](https://www.thingiverse.com/oculusquest/designs) for the great work._
+_The model of the Raspberry Pi 4 wasn't designes by us. We got it from thingiverse <https://www.thingiverse.com/thing:4621310/files>. Thanks to [Brian Lee](https://www.thingiverse.com/oculusquest/designs) for the great work._
+
+### WM8960 Soundcard
+
+::thumbnail{:src="/hardware/cad/wm8960-soundcard.jpg"}
+::
+
+- ::download-link{:file="/hardware/cad/wm8960-soundcard.FCStd"}
+  ::
 
 ### Radarsensor RCWL-0516
 
