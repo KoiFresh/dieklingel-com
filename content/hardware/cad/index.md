@@ -9,7 +9,7 @@ We created a bunch of CAD file, which we then 3d printed and used as the casing 
 ::thumbnail{:src="/hardware/cad/outer-frame.jpg"}
 ::
 
-The outer frame is the main case, which shoul be screewd in your wall.
+The outer frame is the main case, which should be screwed on your wall.
 
 - ::download-link{:file="/hardware/cad/outer-frame.FCStd"}
   ::
@@ -19,7 +19,7 @@ The outer frame is the main case, which shoul be screewd in your wall.
 ::thumbnail{:src="/hardware/cad/mid-frame.jpg"}
 ::
 
-The mid frame connects the main fame with the outer frame, and leaves some space to level th main frame.
+The mid frame connects the main fame with the outer frame, and leaves some space to level the main frame.
 
 - ::download-link{:file="/hardware/cad/mid-frame.FCStd"}
   ::
@@ -81,6 +81,7 @@ _This part is still under construction._
 
 - ::download-link{:file="/hardware/cad/display.FCStd"}
   ::
+- [The display](/hardware#%EF%B8%8F-the-display)
 
 ### Raspberry Pi 4
 
@@ -89,6 +90,7 @@ _This part is still under construction._
 
 - ::download-link{:file="/hardware/cad/raspberry-pi-4.FCStd"}
   ::
+- [The main controller](/hardware#the-main-controller)
 
 _The model of the Raspberry Pi 4 wasn't designes by us. We got it from thingiverse <https://www.thingiverse.com/thing:4621310/files>. Thanks to [Brian Lee](https://www.thingiverse.com/oculusquest/designs) for the great work._
 
@@ -99,6 +101,16 @@ _The model of the Raspberry Pi 4 wasn't designes by us. We got it from thingiver
 
 - ::download-link{:file="/hardware/cad/wm8960-soundcard.FCStd"}
   ::
+- [Speaker](/hardware#speaker)
+
+### Microphone
+
+::thumbnail{:src="/hardware/cad/microphone.jpg"}
+::
+
+- ::download-link{:file="/hardware/cad/microphone.FCStd"}
+  ::
+- [Microphone](/hardware#%EF%B8%8F-microphone)
 
 ### Radarsensor RCWL-0516
 
@@ -107,6 +119,7 @@ _The model of the Raspberry Pi 4 wasn't designes by us. We got it from thingiver
 
 - ::download-link{:file="/hardware/cad/rcwl-0516.FCStd"}
   ::
+- [The movement detection](/hardware#the-movement-detection)
 
 ### Stainless steel panel
 
@@ -131,6 +144,7 @@ _The model of the Raspberry Pi 4 wasn't designes by us. We got it from thingiver
 
 - ::download-link{:file="/hardware/cad/raspberry-pi-camera.FCStd"}
   ::
+- [The camera](/hardware#the-camera)
 
 ## Assembly
 
