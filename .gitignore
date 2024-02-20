@@ -91,3 +91,6 @@ sw.*
 
 # Nuxt
 .output
+
+# Free CAD Files
+*.FCStd1

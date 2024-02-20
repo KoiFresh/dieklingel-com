@@ -62,9 +62,15 @@ TODO: create a part, to clip in the stainless steel panels
 
 TODO: create a part, to hold the speaker
 
-### Radarsensor frame
+### RCWL-0516 frame
 
-TODO: create a part to hold the RCWL-0516
+::thumbnail{:src="/hardware/cad/rcwl-0516-frame.jpg"}
+::
+
+- ::download-link{:file="/hardware/cad/rcwl-0516-frame.FCStd"}
+  ::
+
+_This part is still under construction._
 
 ## Others
 
@@ -85,6 +91,14 @@ TODO: create a part to hold the RCWL-0516
   ::
 
 _The model of the Raspberry Pi 4 wasn't designes by use. We got it from thingiverse <https://www.thingiverse.com/thing:4621310/files>. Thanks to [Brian Lee](https://www.thingiverse.com/oculusquest/designs) for the great work._
+
+### Radarsensor RCWL-0516
+
+::thumbnail{:src="/hardware/cad/rcwl-0516.jpg"}
+::
+
+- ::download-link{:file="/hardware/cad/rcwl-0516.FCStd"}
+  ::
 
 ### Stainless steel panel
 
