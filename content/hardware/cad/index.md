@@ -56,7 +56,27 @@ The camera-frame is mounted on the main frame and holds the Raspberry Pi Camera.
 
 ### Stainless steel panel clip
 
-TODO: create a part, to clip in the stainless steel panels
+::thumbnail{:src="/hardware/cad/stainless-steel-panel-clip.jpg"}
+::
+
+- ::download-link{:file="/hardware/cad/stainless-steel-panel-clip.FCStd"}
+  ::
+
+### Stainless steel panel clipper
+
+::thumbnail{:src="/hardware/cad/stainless-steel-panel-clipper.jpg"}
+::
+
+- ::download-link{:file="/hardware/cad/stainless-steel-panel-clipper.FCStd"}
+  ::
+
+### H frame
+
+::thumbnail{:src="/hardware/cad/h-frame.jpg"}
+::
+
+- ::download-link{:file="/hardware/cad/h-frame.FCStd"}
+  ::
 
 ### Speaker frame
 
